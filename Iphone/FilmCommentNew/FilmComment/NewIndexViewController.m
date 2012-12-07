@@ -84,7 +84,7 @@
 {
     
     CGRect upRect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2+50);
-    CGRect downRect = CGRectMake(0, self.view.frame.size.height/2+50, self.view.frame.size.width, self.view.frame.size.height/2-50);
+    CGRect downRect = CGRectMake(20, self.view.frame.size.height/2+50, self.view.frame.size.width-40, self.view.frame.size.height/2-50);
     UIView *outside = [[[UIView alloc] initWithFrame:self.view.bounds] autorelease];
     //UIImageView *filmImg= [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Avatar1.png"]] autorelease];
     
@@ -98,7 +98,9 @@
     [filmImg setFrame:upRect];
     [filmImg setContentMode:UIViewContentModeScaleToFill];
     filmBrief = [[[UITextView alloc] initWithFrame:downRect] autorelease];
+    filmBrief.font = [UIFont fontWithName:@"Arial" size:13.0];
     filmBrief.text = introduce;
+    filmBrief.editable = NO;
     [outside addSubview:filmImg];
     [outside addSubview:filmBrief];
     return outside;

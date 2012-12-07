@@ -38,9 +38,9 @@
 		9A1B18F21668AB94003AAE87 /* UARoundedRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1B18E01668AB94003AAE87 /* UARoundedRectView.m */; };
 		9A28E5DB16717D4A00C4659C /* TypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A28E5DA16717D4A00C4659C /* TypeViewController.xib */; };
 		9A28E5E61671914F00C4659C /* FilmByTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A28E5E51671914F00C4659C /* FilmByTypeViewController.xib */; };
+		9A28E60A1671CA9E00C4659C /* navigationBarBackgroundRetro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A28E6091671CA9E00C4659C /* navigationBarBackgroundRetro.png */; };
 		9A2AEAC716702F5900B4CE3C /* FilmObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2AEAC616702F5900B4CE3C /* FilmObj.m */; };
 		9A2AEAFF1670645800B4CE3C /* MyBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2AEAFE1670645800B4CE3C /* MyBar.m */; };
-		9A2AEB031670677600B4CE3C /* navigationBarBackgroundRetro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2AEB021670677600B4CE3C /* navigationBarBackgroundRetro.png */; };
 		9A2AEB09167071B800B4CE3C /* navigationBarBackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A2AEB08167071B800B4CE3C /* navigationBarBackButton.png */; };
 		9A2C40D5166DD20400CB2C83 /* TestCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C40D4166DD20400CB2C83 /* TestCommentViewController.m */; };
 		9A2C40D9166DD2DD00CB2C83 /* TestCommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C40D7166DD2DD00CB2C83 /* TestCommentDetailViewController.m */; };
@@ -135,11 +135,11 @@
 		9A1B18E01668AB94003AAE87 /* UARoundedRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UARoundedRectView.m; sourceTree = "<group>"; };
 		9A28E5DA16717D4A00C4659C /* TypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeViewController.xib; sourceTree = "<group>"; };
 		9A28E5E51671914F00C4659C /* FilmByTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilmByTypeViewController.xib; sourceTree = "<group>"; };
+		9A28E6091671CA9E00C4659C /* navigationBarBackgroundRetro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackgroundRetro.png; sourceTree = "<group>"; };
 		9A2AEAC516702F5900B4CE3C /* FilmObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilmObj.h; sourceTree = "<group>"; };
 		9A2AEAC616702F5900B4CE3C /* FilmObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilmObj.m; sourceTree = "<group>"; };
 		9A2AEAFD1670645800B4CE3C /* MyBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBar.h; sourceTree = "<group>"; };
 		9A2AEAFE1670645800B4CE3C /* MyBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBar.m; sourceTree = "<group>"; };
-		9A2AEB021670677600B4CE3C /* navigationBarBackgroundRetro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackgroundRetro.png; sourceTree = "<group>"; };
 		9A2AEB08167071B800B4CE3C /* navigationBarBackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBarBackButton.png; sourceTree = "<group>"; };
 		9A2C40D3166DD20400CB2C83 /* TestCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCommentViewController.h; sourceTree = "<group>"; };
 		9A2C40D4166DD20400CB2C83 /* TestCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCommentViewController.m; sourceTree = "<group>"; };
@@ -463,7 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				9A2AEB08167071B800B4CE3C /* navigationBarBackButton.png */,
-				9A2AEB021670677600B4CE3C /* navigationBarBackgroundRetro.png */,
+				9A28E6091671CA9E00C4659C /* navigationBarBackgroundRetro.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -581,10 +581,10 @@
 				9A2C40DA166DD2DD00CB2C83 /* TestCommentDetailViewController.xib in Resources */,
 				9A2C40DF166DD59B00CB2C83 /* TestCommentCell.xib in Resources */,
 				9A2C40E5166DE23500CB2C83 /* Avatar1.png in Resources */,
-				9A2AEB031670677600B4CE3C /* navigationBarBackgroundRetro.png in Resources */,
 				9A2AEB09167071B800B4CE3C /* navigationBarBackButton.png in Resources */,
 				9A28E5DB16717D4A00C4659C /* TypeViewController.xib in Resources */,
 				9A28E5E61671914F00C4659C /* FilmByTypeViewController.xib in Resources */,
+				9A28E60A1671CA9E00C4659C /* navigationBarBackgroundRetro.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

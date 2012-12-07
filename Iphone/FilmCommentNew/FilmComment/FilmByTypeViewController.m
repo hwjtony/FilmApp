@@ -42,9 +42,9 @@
     self.navigationItem.rightBarButtonItem = temporaryBarButtonItem;
     
     self.typeListContent = [[NSMutableArray alloc] init];
-    self.title = _data;
+    //self.title = _data;
     self.canLoadMore = YES;
-    [self.tableView setBackgroundColor:[UIColor lightGrayColor]];
+    //[self.tableView setBackgroundColor:[UIColor lightGrayColor]];
     
     // set the custom view for "pull to refresh". See DemoTableHeaderView.xib.
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"DemoTableHeaderView" owner:self options:nil];
