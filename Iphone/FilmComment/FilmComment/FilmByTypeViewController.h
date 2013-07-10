@@ -18,7 +18,7 @@
     NSMutableArray *items;
 }
 
-@property NSString *data;
+@property (retain)NSString *data;
 @property (nonatomic, retain) NSMutableArray *typeListContent;
 @property (nonatomic, retain) NSMutableArray *typeAddListContent;
 @property (nonatomic, retain) UISearchDisplayController	*typeSearchDisplayController;

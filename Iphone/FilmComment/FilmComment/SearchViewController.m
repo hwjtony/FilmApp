@@ -1,3 +1,4 @@
+#import <QuartzCore/QuartzCore.h>
 #import "SearchViewController.h"
 #import "CJSONDeserializer.h"
 #import "SharedViewController.h"
@@ -31,10 +32,15 @@
 - (void)viewDidLoad{
 	self.filteredListContent = [[NSMutableArray alloc] init];
 	
-	UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
-																					target:self
-																					action:@selector(searchBar:)];
-	self.navigationItem.rightBarButtonItem = rightBarButton;
+	UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = CGRectMake(0.0, 0.0, 35.0, 35.0);
+    [backButton setImage:[UIImage imageNamed:@"closeButton.png"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *temporaryBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    temporaryBarButtonItem.style = UIBarButtonItemStylePlain;
+    self.navigationItem.rightBarButtonItem=temporaryBarButtonItem;
+    [temporaryBarButtonItem release];
+    self.navigationItem.hidesBackButton = YES;
 	
 	UISearchBar *mySearchBar = [[UISearchBar alloc] init];
 	mySearchBar.delegate = self;
@@ -71,7 +77,7 @@
 	/*
 	 Hide the search bar
 	 */
-	[self.tableView setContentOffset:CGPointMake(0, 44.f) animated:NO];
+	[self.tableView setContentOffset:CGPointMake(0, 0) animated:NO];
 	NSIndexPath *tableSelection = [self.tableView indexPathForSelectedRow];
 	[self.tableView deselectRowAtIndexPath:tableSelection animated:NO];
 }
@@ -118,6 +124,16 @@
 	{
         film = [self.filteredListContent objectAtIndex:indexPath.row];
     }
+    
+    UILabel *lbl = [[UILabel alloc]initWithFrame:CGRectMake(77, 60, 300, 40)];
+    lbl.backgroundColor  = [UIColor clearColor];
+    lbl.tag = indexPath.row;
+    lbl.textColor = [UIColor grayColor];
+    lbl.font = [UIFont fontWithName:@"Arial" size:13.0];
+    lbl.text = film.time;
+    [cell.contentView addSubview:lbl];
+    [lbl release];
+    
 	cell.imageView.image = film.img;
 	cell.textLabel.text = film.name;
     cell.detailTextLabel.text = film.performer;
@@ -126,13 +142,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SharedViewController *detailsViewController = [[SharedViewController alloc] init];
-    UIWebView *webView = [[UIWebView alloc]initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height)];
+    detailsViewController.return_flag = 1;
+    UIWebView *webView = [[UIWebView alloc]initWithFrame:CGRectMake(0,0,self.view.frame.size.width,self.view.frame.size.height-44)];
     webView.delegate = detailsViewController;
 	Film *film = nil;
 	if (tableView == self.searchDisplayController.searchResultsTableView)
 	{
         film = [self.filteredListContent objectAtIndex:indexPath.row];
-        NSString *url = [NSString stringWithFormat:@"http://192.168.3.12/index.php?r=site/filmDetail&fid=%@",film.url];
+        NSString *url = [NSString stringWithFormat:@"http://192.168.1.11/Movie/index.php?r=site/filmDetailIphone&fid=%@",film.url];
         NSLog(@"%@",url);
         [webView loadRequest:[[NSURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:url]]];
         [detailsViewController viewDidLoad];
@@ -183,13 +200,13 @@
 }
 
 -(void)SearchData:(NSString *)searchtext{
-    NSString *urlString = [NSString stringWithFormat:@"http://192.168.3.12/index.php?r=site/IphoneSearch&search=%@",searchtext];
+    NSString *urlString = [NSString stringWithFormat:@"http://192.168.1.11/Movie/index.php?r=site/IphoneSearch&search=%@",searchtext];
     NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding (kCFStringEncodingGB_18030_2000);
     NSString *strUrld8 = [urlString stringByAddingPercentEscapesUsingEncoding:enc];
     //调用http get请求方法
     [self sendRequestByGet:strUrld8];
 }
-
+	
 //HTTP get请求方法
 - (void)sendRequestByGet:(NSString*)urlString
 {
@@ -236,13 +253,25 @@
         NSURL *url = [NSURL URLWithString:imgUrl];
         UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
         NSString *performer = [picture objectForKey:@"performer"];
+        NSString *time = [picture objectForKey:@"datetime"];
         NSLog(@"imgUrl is %@",imgUrl);
-        [self.filteredListContent addObject:[Film productWithUrl:surl name:name img:img performer:performer]];
+        [self.filteredListContent addObject:[Film productWithUrl:surl name:name img:img performer:performer time:time]];
         
     }
     [self.searchDisplayController.searchResultsTableView reloadData];
     [data release];
     [picArray release];
+}
+
+-(void)close{
+    [self.navigationController setToolbarHidden:NO animated:YES];
+    CATransition *animation = [CATransition animation];
+    [animation setDuration:0.7];
+    [animation setType: kCATransitionReveal];
+    [animation setSubtype: kCATransitionFromBottom];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+    [self.navigationController.view.layer addAnimation:animation forKey:nil];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 @end

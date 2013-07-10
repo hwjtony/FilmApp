@@ -12,13 +12,14 @@
 	NSString *url;
 	NSString *name;
     NSString *performer;
+    NSString *time;
     UIImage *img;
 }
 
-@property (nonatomic, copy) NSString *url, *name, *performer;
+@property (nonatomic, copy) NSString *url, *name, *performer, *time;
 @property (nonatomic, copy) UIImage *img;
 
-+ (id)productWithUrl:(NSString *)url name:(NSString *)name img:(UIImage *)img performer:(NSString *)performer;
++ (id)productWithUrl:(NSString *)url name:(NSString *)name img:(UIImage *)img performer:(NSString *)performer time:(NSString *)time;
 
 @end
 

@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TypeViewController : UITableViewController
+@interface TypeViewController : UITableViewController{
+    NSArray *items;
+}
 
+@property (nonatomic,retain) NSArray *items;
 @property (nonatomic,retain) NSString *data;
 @end

@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "UAModalPanel.h"
+#include "sqlite3.h"
+#define kFileName @"mydb1.sql"
 
 @interface SharedViewController : UIViewController <UIWebViewDelegate,UIPopoverControllerDelegate,UAModalPanelDelegate>{
     UIAlertView *loadView;
     UIWebView *webView;
+    bool return_flag;
+    sqlite3 *database;
 }
 
 -(IBAction)showModalPanel:(id)sender;
+@property (nonatomic,retain) UIWebView *webView;
+@property (nonatomic) bool return_flag;
+
 
 @end

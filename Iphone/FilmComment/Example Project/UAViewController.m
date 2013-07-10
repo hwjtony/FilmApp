@@ -22,7 +22,6 @@
 
 
 - (IBAction)showModalPanel:(id)sender {
-	
 	UAExampleModalPanel *modalPanel = [[[UAExampleModalPanel alloc] initWithFrame:self.view.bounds title:[(UIButton *)sender titleForState:UIControlStateNormal]] autorelease];
 
 	/////////////////////////////////

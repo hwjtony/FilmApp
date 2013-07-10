@@ -17,7 +17,7 @@
 - (id)initWithFrame:(CGRect)frame title:(NSString *)title data:(NSString *)data {
 	if ((self = [super initWithFrame:frame])) {
 		
-		CGFloat colors[8] = BLACK_BAR_COMPONENTS;
+		//CGFloat colors[8] = BLACK_BAR_COMPONENTS;
 		//[self.titleBar setColorComponents:colors];
 		//self.headerLabel.text = title;
 		
